@@ -18,10 +18,13 @@ for i in range(triangle_rows):
     s_triangle.append(row)
 
 # Print Sierpinski Triangle
-for i in range(triangle_rows):
+row_index = 0
+for index, i in enumerate(range(triangle_rows)):
     for sub_row in range(3):
-        front_spaces = ' ' * (n - 3 * i - sub_row - 1)
-        line = front_spaces
+        padding_spaces = ' ' * (n - 3 * i - sub_row - 1)
+        
+        # Front padding
+        line = padding_spaces
         
         for j in range(i + 1):
             # Fill Triangle
@@ -51,5 +54,11 @@ for i in range(triangle_rows):
                     line += '   '
                 else:
                     line += ' '
+
+        row_index += 1
+        
+        # Back padding
+        line += padding_spaces
+        if n != row_index: line += ' '
         
         print(line)
